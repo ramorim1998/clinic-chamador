@@ -1,0 +1,5 @@
+.panel { padding:24px; max-width:800px; margin:30px auto; background:white; border-radius:12px; }
+.form { display:flex; gap:12px; align-items:center; }
+input, select { padding:10px; border-radius:8px; border:1px solid #e6eefc; }
+button { padding:10px 14px; border-radius:8px; background:#0b75ff; color:white; border:0; cursor:pointer; }
+.fila-item { display:flex; justify-content:space-between; padding:10px; border-radius:8px; background:#f4fbff; margin-bottom:8px; }

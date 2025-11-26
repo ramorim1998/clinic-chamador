@@ -1,0 +1,25 @@
+<button id="unlock-voice" (click)="desbloquearVoz()" style="opacity:0; position:absolute; pointer-events:auto;">
+  desbloquear voz
+</button>
+
+<div class="chamador-root" >
+  <div class="left"[style.--texto]="temaStyles.texto"
+     [style.--sombra]="temaStyles.sombra"
+     [style.--destaque]="temaStyles.destaque">
+    <div class="cenario" [ngClass]="[tema, tema ? 'ativo' : '']"></div>
+      <div class="conteudo">
+
+        <div class="tema">{{ tema }}</div>
+        <div class="paciente">{{ ultimoChamado?.nome }}</div>
+        <div class="sala">{{ ultimoChamado?.sala }}</div>
+        <div class="senha">Senha: {{ ultimoChamado?.senha }}</div>
+      </div>
+  </div>
+
+  <div class="right">
+    <h3>Últimas Chamadas</h3>
+    <div class="card-historico" *ngFor="let h of historico">
+      {{ h.nome }} — {{ h.sala }}
+    </div>
+  </div>
+</div>

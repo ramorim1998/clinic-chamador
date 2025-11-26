@@ -1,0 +1,36 @@
+<div class="recepcao-container">
+
+  <h2>Recepção</h2>
+
+  <form (ngSubmit)="cadastrar()" class="form">
+    
+    <label>Nome:</label>
+    <input type="text" [(ngModel)]="nome" name="nome" required />
+
+    <label>Sala:</label>
+    <select [(ngModel)]="sala" name="sala" required>
+      <option value="" disabled selected>Selecione uma sala</option>
+      <option *ngFor="let s of salas" [value]="s">
+        {{ s }}
+      </option>
+    </select>
+
+    <label>Senha:</label>
+    <input type="text" [(ngModel)]="senha" name="senha" />
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <hr>
+
+  <h3>Pacientes na Fila</h3>
+
+  <div *ngFor="let p of fila" class="card">
+    <strong>{{ p.nome }}</strong>  
+    <div>Sala: {{ p.sala }}</div>
+    <div>Senha: {{ p.senha }}</div>
+
+    <button (click)="chamar(p)">Chamar</button>
+  </div>
+
+</div>

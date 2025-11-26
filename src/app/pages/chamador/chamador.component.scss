@@ -1,0 +1,284 @@
+.chamador-root {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  height: 100vh;
+  background: linear-gradient(135deg, #e7f3ff, #fefcff);
+  font-family: "Poppins", sans-serif;
+
+  --texto: #333;
+  --sombra: rgba(0,0,0,0.3);
+  --destaque: #0984e3;
+
+  color: var(--texto);
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.left {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  flex: 2;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.6s ease;
+
+  .tema {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--destaque);
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 6px var(--sombra);
+  }
+
+  .paciente {
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--texto);
+    text-shadow: 2px 2px 6px var(--sombra);
+  }
+
+  .sala {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--texto);
+    text-shadow: 2px 2px 6px var(--sombra);
+  }
+
+  .senha {
+    margin-top: 25px;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--destaque);
+    text-shadow: 2px 2px 6px var(--sombra);
+  }
+}
+
+.right {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--destaque);
+  }
+
+  .card-historico {
+    background: #f1f5ff;
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--texto);
+    border-left: 6px solid var(--destaque);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+
+    animation: slide 0.4s ease;
+  }
+}
+
+/* animações (mantidas como antes) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.95);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.cenario {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 24px;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: all .7s ease;
+}
+
+.cenario.ativo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.conteudo {
+  position: relative;
+  z-index: 10;
+}
+/* 🦕 DINOSSAUROS */
+.cenario.dinossauro {
+  background: linear-gradient(135deg, #c8f7c5, #78e08f);
+}
+
+.cenario.dinossauro::before {
+  content: "🦖";
+  position: absolute;
+  font-size: 120px;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0.8;
+  animation: flutuar 5s ease-in-out infinite;
+}
+
+.cenario.dinossauro::after {
+  content: "🌴";
+  position: absolute;
+  font-size: 90px;
+  top: 30px;
+  right: 30px;
+  opacity: 0.7;
+  animation: flutuar2 6s ease-in-out infinite;
+}
+/* 👑 PRINCESA / CASTELO */
+.cenario.princesa {
+  background: linear-gradient(135deg, #ffd6ff, #f7a8ff);
+}
+
+.cenario.princesa::before {
+  content: "🏰";
+  position: absolute;
+  font-size: 110px;
+  bottom: 25px;
+  left: 25px;
+  opacity: 0.8;
+  animation: flutuar 5s ease-in-out infinite;
+}
+
+.cenario.princesa::after {
+  content: "👸";
+  position: absolute;
+  font-size: 100px;
+  top: 25px;
+  right: 35px;
+  opacity: 0.7;
+  animation: flutuar2 6s ease-in-out infinite;
+}
+/* 🤖 ROBÔS */
+.cenario.robo {
+  background: linear-gradient(135deg, #dfe6e9, #b2bec3);
+}
+
+.cenario.robo::before {
+  content: "🤖";
+  position: absolute;
+  font-size: 110px;
+  bottom: 25px;
+  left: 25px;
+  opacity: 0.8;
+  animation: flutuar 4.5s ease-in-out infinite;
+}
+
+.cenario.robo::after {
+  content: "⚡";
+  position: absolute;
+  font-size: 90px;
+  top: 20px;
+  right: 40px;
+  opacity: 0.7;
+  animation: flutuar2 5.5s ease-in-out infinite;
+}
+/* 🌳 FLORESTA MÁGICA */
+.cenario.floresta {
+  background: linear-gradient(135deg, #b8e994, #78e08f);
+}
+
+.cenario.floresta::before {
+  content: "🦋";
+  position: absolute;
+  font-size: 90px;
+  bottom: 30px;
+  left: 40px;
+  animation: flutuar 4s ease-in-out infinite;
+}
+
+.cenario.floresta::after {
+  content: "🌲";
+  position: absolute;
+  font-size: 120px;
+  top: 20px;
+  right: 30px;
+  animation: flutuar2 6s ease-in-out infinite;
+}
+/* 🚀 ESPAÇO */
+.cenario.espaco {
+  background: linear-gradient(135deg, #1e272e, #2f3640);
+  color: white;
+}
+
+.cenario.espaco::before {
+  content: "🚀";
+  position: absolute;
+  font-size: 110px;
+  bottom: 30px;
+  left: 35px;
+  animation: flutuar 6s ease-in-out infinite;
+}
+
+.cenario.espaco::after {
+  content: "🪐";
+  position: absolute;
+  font-size: 120px;
+  top: 25px;
+  right: 40px;
+  animation: flutuar2 7s ease-in-out infinite;
+}
+@keyframes flutuar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes flutuar2 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+  100% { transform: translateY(0); }
+}
+.cenario.ativo {
+  opacity: 1;
+  transform: scale(1);
+}

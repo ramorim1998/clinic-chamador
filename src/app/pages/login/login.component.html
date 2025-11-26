@@ -1,0 +1,10 @@
+<div class="login-card">
+    <h2>Recepção</h2>
+    <input [(ngModel)]="email" placeholder="email@clinica.com" />
+    <input [(ngModel)]="pass" type="password" placeholder="senha" />
+    <select [(ngModel)]="sala">
+        <option value="">Escolher Sala</option>
+        <option *ngFor="let s of salas" [value]="s">{{s}}</option>
+    </select>
+    <button (click)="login()">Entrar</button>
+</div>
